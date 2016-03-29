@@ -12,7 +12,7 @@ import SpriteKit
 /// Visual representation of the moving ball object
 class BallNode: SKShapeNode {
   /// The movement speed of the ball node
-  var movementSpeed: CGFloat = 3.5
+  var movementSpeed: CGFloat = 7.5
   
   /// The movement velocity of the ball
   var movementVelocity: CGVector = CGVector.zero
@@ -45,9 +45,14 @@ class BallNode: SKShapeNode {
     strokeColor = .clearColor()
     
     // Create a static physics body for the ball
-    physicsBody = SKPhysicsBody(circleOfRadius: ballRadius)
-    physicsBody!.dynamic = false
-    
+    physicsBody = SKPhysicsBody(polygonFromPath: path!)
+    physicsBody!.categoryBitMask = PhysicsBitMask.Ball.rawValue
+    physicsBody!.contactTestBitMask = PhysicsBitMask.Paddle.rawValue
+    physicsBody!.friction = 0.0
+    physicsBody!.mass = 0.0
+    physicsBody!.velocity = CGVector.zero
+    physicsBody!.usesPreciseCollisionDetection = true
+
     // Default to velocity in the middle of the screen
     movementVelocity = CGVector(dx: sceneSize.width / 2.0, dy: sceneSize.height / 2.0)
   }
@@ -57,15 +62,13 @@ class BallNode: SKShapeNode {
       fatalError("BallNode must belong to a parent node")
     }
     
-    let adjustedHeight = frame.height / 2.0
-    
     // Figure out where we want to bounce next and in what angle
-    if movementVelocity.dy >= parent.frame.height - adjustedHeight {
-      shouldBounceUp = true
+    if movementVelocity.dy >= parent.frame.height - frame.height {
+      shouldBounceUp = false
       movementVelocityModifier = CGFloat.randomAngleTangent(from: 25, to: 35)
     }
-    else if movementVelocity.dy <= adjustedHeight {
-      shouldBounceUp = false
+    else if movementVelocity.dy <= 0 {
+      shouldBounceUp = true
       movementVelocityModifier = CGFloat.randomAngleTangent(from: 25, to: 35)
     }
     
@@ -88,6 +91,22 @@ class BallNode: SKShapeNode {
     }
     
     position = CGPoint(x: movementVelocity.dx, y: movementVelocity.dy)
+  }
+}
+
+// MARK: - Physics
+
+extension BallNode {
+  func handleContactWithPaddle(paddleNode: PaddleNode) {
+    if paddleNode.shouldMoveUp {
+      shouldBounceUp = true
+    }
+    else if paddleNode.shouldMoveDown {
+      shouldBounceUp = false
+    }
+    
+    shouldBounceLeft = !shouldBounceLeft
+    movementVelocityModifier = CGFloat.randomAngleTangent(from: 25, to: 35)
   }
 }
 

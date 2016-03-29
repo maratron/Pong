@@ -30,7 +30,12 @@ class PaddleNode: SKSpriteNode {
     
     // Create a static physics body for the paddle
     physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
-    physicsBody!.dynamic = false
+    physicsBody!.categoryBitMask = PhysicsBitMask.Paddle.rawValue
+    physicsBody!.contactTestBitMask = PhysicsBitMask.Ball.rawValue
+    physicsBody!.friction = 0.0
+    physicsBody!.mass = 500.0
+    physicsBody!.velocity = CGVector.zero
+    physicsBody!.usesPreciseCollisionDetection = true
   }
   
   /// Called on every update loop of the scene

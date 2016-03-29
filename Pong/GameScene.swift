@@ -59,21 +59,28 @@ class GameScene: SKScene {
     // Create and add the ball node
     ball = BallNode(sceneSize: sceneSize)
     ball.position = CGPoint(x: size.width / 5, y: size.height / 2)
+    ball.physicsBody?.usesPreciseCollisionDetection = true
     addChild(ball)
+    
+    // No gravity physics world
+    physicsWorld.contactDelegate = self
+    physicsWorld.gravity = CGVector.zero
   }
   
   override func update(currentTime: NSTimeInterval) {
     playerPaddle.update(currentTime)
     computerPaddle.update(currentTime)
     ball.update(currentTime)
-    
+   
     if ball.movementVelocity.dx >= size.width + ball.frame.width * 2 {
       resetBallPosition()
     }
     else if ball.movementVelocity.dx <= 0 {
       resetBallPosition()
     }
+
     
+    // Make sure paddles don't move horizontally (physics can cause it)
     playerPaddle.position.x = playerPaddleFixedOriginX
     computerPaddle.position.x = computerPaddleFixedOriginX
   }
@@ -81,8 +88,6 @@ class GameScene: SKScene {
   func resetBallPosition() {
     ball.movementVelocity = CGVector(dx: size.width / 2.0, dy: size.height / 2.0)
     ball.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-    ball.shouldBounceUp = (arc4random_uniform(2) + 1) % 2 == 0
-    ball.shouldBounceLeft = (arc4random_uniform(2) + 1) % 2 == 0
   }
 }
 
@@ -111,5 +116,23 @@ extension GameScene {
       playerPaddle.shouldMoveDown = isKeyDown
       computerPaddle.shouldMoveDown = isKeyDown
     }
+  }
+}
+
+// MARK: - Physics
+
+extension GameScene: SKPhysicsContactDelegate {
+  func didBeginContact(contact: SKPhysicsContact) {
+    let ballTouched = contact.bodyA.categoryBitMask == PhysicsBitMask.Paddle.rawValue
+    let paddleTouched = contact.bodyB.categoryBitMask == PhysicsBitMask.Ball.rawValue
+    
+    guard let paddleNode = contact.bodyA.node as? PaddleNode else {
+      return
+    }
+    
+    if ballTouched && paddleTouched {
+      ball.handleContactWithPaddle(paddleNode)
+    }
+
   }
 }
