@@ -12,6 +12,7 @@
 		03BA76021CAA1D33002EACB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BA76011CAA1D33002EACB9 /* Assets.xcassets */; };
 		03BA76051CAA1D33002EACB9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BA76031CAA1D33002EACB9 /* MainMenu.xib */; };
 		03BA761C1CAA227C002EACB9 /* PaddleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA761B1CAA227C002EACB9 /* PaddleNode.swift */; };
+		03BA761F1CAA2814002EACB9 /* SKColor+Pong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		03BA76041CAA1D33002EACB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		03BA76061CAA1D33002EACB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03BA761B1CAA227C002EACB9 /* PaddleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleNode.swift; sourceTree = "<group>"; };
+		03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKColor+Pong.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		03BA75FA1CAA1D33002EACB9 /* Pong */ = {
 			isa = PBXGroup;
 			children = (
+				03BA761D1CAA2807002EACB9 /* Extensions */,
 				03BA761A1CAA2270002EACB9 /* Nodes */,
 				03BA76181CAA21B5002EACB9 /* Scenes */,
 				03BA76121CAA1E5B002EACB9 /* Support */,
@@ -86,6 +89,14 @@
 				03BA761B1CAA227C002EACB9 /* PaddleNode.swift */,
 			);
 			name = Nodes;
+			sourceTree = "<group>";
+		};
+		03BA761D1CAA2807002EACB9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03BA75FE1CAA1D33002EACB9 /* GameScene.swift in Sources */,
+				03BA761F1CAA2814002EACB9 /* SKColor+Pong.swift in Sources */,
 				03BA761C1CAA227C002EACB9 /* PaddleNode.swift in Sources */,
 				03BA75FC1CAA1D33002EACB9 /* AppDelegate.swift in Sources */,
 			);

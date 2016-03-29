@@ -22,9 +22,11 @@ class GameScene: SKScene {
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
     
-    backgroundColor = .blackColor()
+    // Configure scene colors
+    backgroundColor = SKColor.backgroundColor()
     
-    playerPaddle = PaddleNode(color: .whiteColor(), sceneSize: view.frame.size)
+    // Create and add the player's paddle node
+    playerPaddle = PaddleNode(sceneSize: view.frame.size)
     addChild(playerPaddle)
   }
   

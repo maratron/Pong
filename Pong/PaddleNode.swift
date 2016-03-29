@@ -10,8 +10,8 @@ import Foundation
 import SpriteKit
 
 class PaddleNode: SKSpriteNode {
-  convenience init(color: SKColor, sceneSize: CGSize) {
-    self.init(color: color, size: PaddleNode.sizeForSceneSize(sceneSize))
+  convenience init(sceneSize: CGSize) {
+    self.init(color: SKColor.paddleColor(), size: PaddleNode.sizeForSceneSize(sceneSize))
     
     // Create a static physics body for the sprite
     let physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
