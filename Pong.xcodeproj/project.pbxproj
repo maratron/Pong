@@ -15,6 +15,8 @@
 		03BA761F1CAA2814002EACB9 /* SKColor+Pong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */; };
 		03BA76211CAA2891002EACB9 /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76201CAA2891002EACB9 /* BallNode.swift */; };
 		03BA76241CAA30C9002EACB9 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76231CAA30C9002EACB9 /* KeyCodes.swift */; };
+		03BA76261CAA3AF1002EACB9 /* CGFloat+Randomness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76251CAA3AF1002EACB9 /* CGFloat+Randomness.swift */; };
+		03BA76281CAA3B02002EACB9 /* Int+Randomness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76271CAA3B02002EACB9 /* Int+Randomness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKColor+Pong.swift"; sourceTree = "<group>"; };
 		03BA76201CAA2891002EACB9 /* BallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
 		03BA76231CAA30C9002EACB9 /* KeyCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCodes.swift; sourceTree = "<group>"; };
+		03BA76251CAA3AF1002EACB9 /* CGFloat+Randomness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Randomness.swift"; sourceTree = "<group>"; };
+		03BA76271CAA3B02002EACB9 /* Int+Randomness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Randomness.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */,
+				03BA76251CAA3AF1002EACB9 /* CGFloat+Randomness.swift */,
+				03BA76271CAA3B02002EACB9 /* Int+Randomness.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -188,7 +194,9 @@
 				03BA761F1CAA2814002EACB9 /* SKColor+Pong.swift in Sources */,
 				03BA76211CAA2891002EACB9 /* BallNode.swift in Sources */,
 				03BA761C1CAA227C002EACB9 /* PaddleNode.swift in Sources */,
+				03BA76261CAA3AF1002EACB9 /* CGFloat+Randomness.swift in Sources */,
 				03BA75FC1CAA1D33002EACB9 /* AppDelegate.swift in Sources */,
+				03BA76281CAA3B02002EACB9 /* Int+Randomness.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

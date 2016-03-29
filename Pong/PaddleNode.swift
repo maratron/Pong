@@ -33,6 +33,7 @@ class PaddleNode: SKSpriteNode {
     physicsBody!.dynamic = false
   }
   
+  /// Called on every update loop of the scene
   func update(currentTime: NSTimeInterval) {
     if shouldMoveUp {
       self.moveUp()
