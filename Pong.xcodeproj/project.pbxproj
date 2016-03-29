@@ -14,6 +14,7 @@
 		03BA761C1CAA227C002EACB9 /* PaddleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA761B1CAA227C002EACB9 /* PaddleNode.swift */; };
 		03BA761F1CAA2814002EACB9 /* SKColor+Pong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */; };
 		03BA76211CAA2891002EACB9 /* BallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76201CAA2891002EACB9 /* BallNode.swift */; };
+		03BA76241CAA30C9002EACB9 /* KeyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76231CAA30C9002EACB9 /* KeyCodes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		03BA761B1CAA227C002EACB9 /* PaddleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleNode.swift; sourceTree = "<group>"; };
 		03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKColor+Pong.swift"; sourceTree = "<group>"; };
 		03BA76201CAA2891002EACB9 /* BallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallNode.swift; sourceTree = "<group>"; };
+		03BA76231CAA30C9002EACB9 /* KeyCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCodes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		03BA75FA1CAA1D33002EACB9 /* Pong */ = {
 			isa = PBXGroup;
 			children = (
+				03BA76221CAA30BF002EACB9 /* Constants */,
 				03BA761D1CAA2807002EACB9 /* Extensions */,
 				03BA761A1CAA2270002EACB9 /* Nodes */,
 				03BA76181CAA21B5002EACB9 /* Scenes */,
@@ -100,6 +103,14 @@
 				03BA761E1CAA2814002EACB9 /* SKColor+Pong.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		03BA76221CAA30BF002EACB9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				03BA76231CAA30C9002EACB9 /* KeyCodes.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BA76241CAA30C9002EACB9 /* KeyCodes.swift in Sources */,
 				03BA75FE1CAA1D33002EACB9 /* GameScene.swift in Sources */,
 				03BA761F1CAA2814002EACB9 /* SKColor+Pong.swift in Sources */,
 				03BA76211CAA2891002EACB9 /* BallNode.swift in Sources */,

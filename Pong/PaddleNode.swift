@@ -11,6 +11,15 @@ import SpriteKit
 
 /// Visual representation of a moveable paddle object
 class PaddleNode: SKSpriteNode {
+  /// The movement speed of this paddle node
+  var movementSpeed: CGFloat = 10.0
+  
+  /// Whether or not we need to move down on the next render cycle
+  var shouldMoveDown = false
+  
+  /// Whether or not we need to move up on the next render cycle
+  var shouldMoveUp = false
+  
   /// Create a new PaddleNode
   ///
   /// - parameter sceneSize: The size of the scene the paddle will be in (used in size calculation)
@@ -22,6 +31,50 @@ class PaddleNode: SKSpriteNode {
     // Create a static physics body for the paddle
     physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
     physicsBody!.dynamic = false
+  }
+  
+  func update(currentTime: NSTimeInterval) {
+    if shouldMoveUp {
+      self.moveUp()
+    }
+    
+    if shouldMoveDown {
+      self.moveDown()
+    }
+  }
+}
+
+// MARK: - Movement
+
+extension PaddleNode {
+  /// Move the paddle up by the current movement speed
+  func moveUp() {
+    if !isTouchingTopEdge() {
+      position.y += movementSpeed
+    }
+  }
+  
+  /// Move the paddle down by the current movement speed
+  func moveDown() {
+    if !isTouchingBottomEdge() {
+      position.y -= movementSpeed
+    }
+  }
+  
+  /// Check if we can move up
+  /// - returns: True if the paddle can be moved up from current position
+  func isTouchingTopEdge() -> Bool {
+    guard let parent = parent else {
+      fatalError("PaddleNode must belong to a parent node")
+    }
+    
+    return parent.frame.height <= (position.y + size.height / 2.0)
+  }
+  
+  /// Check if we can move down
+  /// - returns: True if the paddle can be moved down from current position
+  func isTouchingBottomEdge() -> Bool {
+    return 0 >= (position.y - size.height / 2.0)
   }
 }
 
