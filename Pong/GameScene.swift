@@ -68,9 +68,9 @@ class GameScene: SKScene {
   }
   
   override func update(currentTime: NSTimeInterval) {
-    playerPaddle.update(currentTime)
-    computerPaddle.update(currentTime)
     ball.update(currentTime)
+    playerPaddle.update(currentTime)
+    computerPaddle.updateWithTargetPosition(CGPoint(x: computerPaddleFixedOriginX, y: ball.movementVelocity.dy))
    
     if ball.movementVelocity.dx >= size.width + ball.frame.width * 2 {
       resetBallPosition()
@@ -111,10 +111,8 @@ extension GameScene {
     switch keyCode {
     case .ArrowUp, .W:
       playerPaddle.shouldMoveUp = isKeyDown
-      computerPaddle.shouldMoveUp = isKeyDown
     case .ArrowDown, .S:
       playerPaddle.shouldMoveDown = isKeyDown
-      computerPaddle.shouldMoveDown = isKeyDown
     }
   }
 }

@@ -14,6 +14,9 @@ class PaddleNode: SKSpriteNode {
   /// The movement speed of this paddle node
   var movementSpeed: CGFloat = 10.0
   
+  /// The throttle speed used when calculating AI movement
+  var throttleSpeed: CGFloat = 0.645
+  
   /// Whether or not we need to move down on the next render cycle
   var shouldMoveDown = false
   
@@ -46,6 +49,17 @@ class PaddleNode: SKSpriteNode {
     
     if shouldMoveDown {
       self.moveDown()
+    }
+  }
+  
+  func updateWithTargetPosition(targetPosition: CGPoint) {
+    position.y = (targetPosition.y * throttleSpeed) + size.height / 2.0
+    
+    if isTouchingTopEdge() {
+      position.y = size.height - size.height / 2.0
+    }
+    else if isTouchingBottomEdge() {
+      position.y = size.height / 2.0
     }
   }
 }
