@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		03BA75FC1CAA1D33002EACB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA75FB1CAA1D33002EACB9 /* AppDelegate.swift */; };
 		03BA75FE1CAA1D33002EACB9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA75FD1CAA1D33002EACB9 /* GameScene.swift */; };
-		03BA76001CAA1D33002EACB9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BA75FF1CAA1D33002EACB9 /* GameScene.sks */; };
 		03BA76021CAA1D33002EACB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BA76011CAA1D33002EACB9 /* Assets.xcassets */; };
 		03BA76051CAA1D33002EACB9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BA76031CAA1D33002EACB9 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
@@ -18,7 +17,6 @@
 		03BA75F81CAA1D33002EACB9 /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BA75FB1CAA1D33002EACB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BA75FD1CAA1D33002EACB9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		03BA75FF1CAA1D33002EACB9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		03BA76011CAA1D33002EACB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03BA76041CAA1D33002EACB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		03BA76061CAA1D33002EACB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,14 +52,21 @@
 		03BA75FA1CAA1D33002EACB9 /* Pong */ = {
 			isa = PBXGroup;
 			children = (
-				03BA75FB1CAA1D33002EACB9 /* AppDelegate.swift */,
 				03BA75FD1CAA1D33002EACB9 /* GameScene.swift */,
-				03BA75FF1CAA1D33002EACB9 /* GameScene.sks */,
+				03BA76121CAA1E5B002EACB9 /* Support */,
+			);
+			path = Pong;
+			sourceTree = "<group>";
+		};
+		03BA76121CAA1E5B002EACB9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				03BA75FB1CAA1D33002EACB9 /* AppDelegate.swift */,
 				03BA76011CAA1D33002EACB9 /* Assets.xcassets */,
 				03BA76031CAA1D33002EACB9 /* MainMenu.xib */,
 				03BA76061CAA1D33002EACB9 /* Info.plist */,
 			);
-			path = Pong;
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +128,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03BA76021CAA1D33002EACB9 /* Assets.xcassets in Resources */,
-				03BA76001CAA1D33002EACB9 /* GameScene.sks in Resources */,
 				03BA76051CAA1D33002EACB9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
