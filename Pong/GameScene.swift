@@ -9,4 +9,11 @@
 import SpriteKit
 
 class GameScene: SKScene {
+  override func didMoveToView(view: SKView) {
+    super.didMoveToView(view)
+  }
+  
+  override func update(currentTime: NSTimeInterval) {
+    // TODO: Game loop code
+  }
 }
