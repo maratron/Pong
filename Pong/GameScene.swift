@@ -9,8 +9,23 @@
 import SpriteKit
 
 class GameScene: SKScene {
+  var playerPaddle: PaddleNode!
+  
+  override init(size: CGSize) {
+    super.init(size: size)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
+    
+    backgroundColor = .blackColor()
+    
+    playerPaddle = PaddleNode(color: .whiteColor(), sceneSize: view.frame.size)
+    addChild(playerPaddle)
   }
   
   override func update(currentTime: NSTimeInterval) {

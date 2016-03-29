@@ -11,8 +11,7 @@
 		03BA75FE1CAA1D33002EACB9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA75FD1CAA1D33002EACB9 /* GameScene.swift */; };
 		03BA76021CAA1D33002EACB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BA76011CAA1D33002EACB9 /* Assets.xcassets */; };
 		03BA76051CAA1D33002EACB9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BA76031CAA1D33002EACB9 /* MainMenu.xib */; };
-		03BA76151CAA1EB0002EACB9 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76141CAA1EB0002EACB9 /* GameEntity.swift */; };
-		03BA76171CAA205C002EACB9 /* PaddleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA76161CAA205C002EACB9 /* PaddleEntity.swift */; };
+		03BA761C1CAA227C002EACB9 /* PaddleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA761B1CAA227C002EACB9 /* PaddleNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +21,7 @@
 		03BA76011CAA1D33002EACB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03BA76041CAA1D33002EACB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		03BA76061CAA1D33002EACB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03BA76141CAA1EB0002EACB9 /* GameEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
-		03BA76161CAA205C002EACB9 /* PaddleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleEntity.swift; sourceTree = "<group>"; };
+		03BA761B1CAA227C002EACB9 /* PaddleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,7 @@
 		03BA75FA1CAA1D33002EACB9 /* Pong */ = {
 			isa = PBXGroup;
 			children = (
-				03BA76131CAA1EA4002EACB9 /* Entities */,
+				03BA761A1CAA2270002EACB9 /* Nodes */,
 				03BA76181CAA21B5002EACB9 /* Scenes */,
 				03BA76121CAA1E5B002EACB9 /* Support */,
 			);
@@ -74,21 +72,20 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
-		03BA76131CAA1EA4002EACB9 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				03BA76141CAA1EB0002EACB9 /* GameEntity.swift */,
-				03BA76161CAA205C002EACB9 /* PaddleEntity.swift */,
-			);
-			name = Entities;
-			sourceTree = "<group>";
-		};
 		03BA76181CAA21B5002EACB9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				03BA75FD1CAA1D33002EACB9 /* GameScene.swift */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		03BA761A1CAA2270002EACB9 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				03BA761B1CAA227C002EACB9 /* PaddleNode.swift */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,9 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03BA76171CAA205C002EACB9 /* PaddleEntity.swift in Sources */,
 				03BA75FE1CAA1D33002EACB9 /* GameScene.swift in Sources */,
-				03BA76151CAA1EB0002EACB9 /* GameEntity.swift in Sources */,
+				03BA761C1CAA227C002EACB9 /* PaddleNode.swift in Sources */,
 				03BA75FC1CAA1D33002EACB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
