@@ -9,16 +9,25 @@
 import Foundation
 import SpriteKit
 
+/// Visual representation of a moveable paddle object
 class PaddleNode: SKSpriteNode {
+  /// Create a new PaddleNode
+  ///
+  /// - parameter sceneSize: The size of the scene the paddle will be in (used in size calculation)
+  ///
+  /// - returns: The newly created PaddleNode
   convenience init(sceneSize: CGSize) {
     self.init(color: SKColor.paddleColor(), size: PaddleNode.sizeForSceneSize(sceneSize))
     
-    // Create a static physics body for the sprite
-    let physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
-    physicsBody.dynamic = false
-    self.physicsBody = physicsBody
+    // Create a static physics body for the paddle
+    physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
+    physicsBody!.dynamic = false
   }
-  
+}
+
+// MARK: - Utilities
+
+extension PaddleNode {
   /// Calculates the proper paddle node size for a given scene size
   ///
   /// - parameter sceneSize: The size of the scene we're playing in
