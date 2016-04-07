@@ -29,13 +29,30 @@ class GameScene: SKScene {
   /// The ball that we're playing with
   var ball: BallNode!
   
-  override init(size: CGSize) {
-    super.init(size: size)
+  /// Player score
+  var playerScoreLabel = SKLabelNode(text: "0")
+  var playerScore: Int = 0 {
+    didSet {
+      playerScoreLabel.text = "\(playerScore)"
+    }
   }
   
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+  /// Computer score
+  var computerScoreLabel = SKLabelNode(text: "0")
+  var computerScore: Int = 0 {
+    didSet {
+      computerScoreLabel.text = "\(computerScore)"
+    }
   }
+  
+  /// The restart countdown is 5 seconds, counting them here
+  var restartCounter: Int = 5
+  
+  /// The label to display the restart countdown
+  var restartCounterLabel = SKLabelNode(text: "5")
+  
+  /// If we're currently counting down to restart
+  var restartCounterActive = false
   
   override func didMoveToView(view: SKView) {
     super.didMoveToView(view)
@@ -48,12 +65,10 @@ class GameScene: SKScene {
     
     // Create and add the player's paddle node
     playerPaddle = PaddleNode(sceneSize: sceneSize)
-    playerPaddle.position = CGPoint(x: playerPaddleFixedOriginX, y: size.height / 2)
     addChild(playerPaddle)
     
     // Create and add the computer's paddle node
     computerPaddle = PaddleNode(sceneSize: sceneSize)
-    computerPaddle.position = CGPoint(x: computerPaddleFixedOriginX, y: size.height / 2)
     addChild(computerPaddle)
 
     // Create and add the ball node
@@ -62,27 +77,68 @@ class GameScene: SKScene {
     ball.physicsBody?.usesPreciseCollisionDetection = true
     addChild(ball)
     
+    // Setup player score label
+    playerScoreLabel.horizontalAlignmentMode = .Right
+    playerScoreLabel.position = CGPoint(x: size.width / 2.0 - 150, y: size.height - 50.0)
+    addChild(playerScoreLabel)
+    
+    // Setup computer score label
+    computerScoreLabel.horizontalAlignmentMode = .Left
+    computerScoreLabel.position = CGPoint(x: size.width / 2.0 + 150, y: size.height - 50.0)
+    addChild(computerScoreLabel)
+    
+    restartCounterLabel.fontSize = 64.0
+    restartCounterLabel.position = CGPoint(x: size.width / 2, y: size.height / 2)
+    addChild(restartCounterLabel)
+    
     // No gravity physics world
     physicsWorld.contactDelegate = self
     physicsWorld.gravity = CGVector.zero
   }
   
   override func update(currentTime: NSTimeInterval) {
+    if restartCounterActive {
+      return
+    }
+    
     ball.update(currentTime)
     playerPaddle.update(currentTime)
     computerPaddle.updateWithTargetPosition(CGPoint(x: computerPaddleFixedOriginX, y: ball.movementVelocity.dy))
    
     if ball.movementVelocity.dx >= size.width + ball.frame.width * 2 {
       resetBallPosition()
+      playerScore += 1
     }
     else if ball.movementVelocity.dx <= 0 {
       resetBallPosition()
+      computerScore += 1
     }
 
-    
     // Make sure paddles don't move horizontally (physics can cause it)
     playerPaddle.position.x = playerPaddleFixedOriginX
     computerPaddle.position.x = computerPaddleFixedOriginX
+  }
+  
+  func restart() {
+    resetPaddlePositions()
+    resetBallPosition()
+    restartCounterActive = false
+  }
+  
+  func restartCountdown() {
+    if restartCounter == 0 {
+      restart()
+      restartCounter = 5
+    }
+    else {
+      self.restartCounterLabel.text = "\(restartCounter)"
+      self.performSelector(#selector(restartCountdown), withObject: nil, afterDelay: 1)
+    }
+  }
+  
+  func resetPaddlePositions() {
+    playerPaddle.position = CGPoint(x: playerPaddleFixedOriginX, y: size.height / 2)
+    computerPaddle.position = CGPoint(x: computerPaddleFixedOriginX, y: size.height / 2)
   }
   
   func resetBallPosition() {

@@ -15,7 +15,7 @@ class PaddleNode: SKSpriteNode {
   var movementSpeed: CGFloat = 10.0
   
   /// The throttle speed used when calculating AI movement
-  var throttleSpeed: CGFloat = 0.645
+  var throttleSpeed: CGFloat = 0.845
   
   /// Whether or not we need to move down on the next render cycle
   var shouldMoveDown = false
